@@ -34,8 +34,8 @@ const cart = [
 ]
 
 //CODE HERE
-
-// const summedPrice = cart.reduce(/* CALLBACK HERE */)
+const summedPrice = cart.reduce((acc, curr) => acc + curr.price,0,)
+console.log(summedPrice);
 
 
 //////////////////PROBLEM 2////////////////////
@@ -54,6 +54,10 @@ const cart = [
 */
 
 //CODE HERE
+function calcFinalPrice(cartTotal, couponValue, tax) {
+    return ((cartTotal + (cartTotal * tax)) - couponValue);
+}
+console.log(calcFinalPrice(100,20,0.06));
 
 
 
@@ -79,6 +83,13 @@ const cart = [
 
 /*
     TEXT ANSWER HERE
+    The customer object should have name, email, phone, address, order history, membership
+    name: the name is important for contact.
+    email: to send order details.
+    phone: to send order details and give live reponses.
+    address: to deliver the food to the house.
+    order history: to track their purchases for membership.
+    membership: to see whether the customer is a part of the membership.
 
 */
 
@@ -88,3 +99,11 @@ const cart = [
 */
 
 //CODE HERE
+const customer = {
+    name: "Hayden",
+    email: "h2yden2@gmail.com",
+    phone: "(123) 456-7890",
+    address: "123 Main St",
+    order_history: [{date: '02/04/24' , total: 50} , {date: '02/05/24' , total: 30}],
+    membership: true
+}

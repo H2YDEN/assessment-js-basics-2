@@ -31,6 +31,14 @@
 */
 
 //CODE HERE
+let pizza = {
+    name: 'Pepperoni Pizza',
+    price: 20,
+    category: 'Entree',
+    popularity: 5,
+    rating: 4,
+    tags: ['Family-sized', 'Popular', 'Party']
+}
 
 
 
@@ -43,6 +51,7 @@
 */
 
 //CODE HERE
+console.log(pizza.popularity);
 
 
 /*
@@ -53,6 +62,7 @@
 */
 
 //CODE HERE
+console.log(pizza.tags[1]);
 
 
 /*
@@ -63,6 +73,8 @@
 */
 
 //CODE HERE
+let { price } = pizza;
+console.log(price);
 
 
 /*
@@ -73,6 +85,8 @@
 */
 
 //CODE HERE
+let { category } = pizza;
+console.log(category);
 
 
 //////////////////PROBLEM 3////////////////////
@@ -88,6 +102,39 @@
 */
 
 //CODE HERE
+let wings = {
+    name: 'BBQ Wings',
+    price: 12,
+    category: 'Appetizer',
+    popularity: 4,
+    rating: 5,
+    tags: ['Small', 'Good Choice']
+}
+let pasta = {
+    name: 'Alfredo Pasta',
+    price: 12,
+    category: 'Entree',
+    popularity: 3,
+    rating: 4,
+    tags: ['Kids', 'Good Choice']
+}
+let breadsticks = {
+    name: 'Garlic Breadsticks',
+    price: 8,
+    category: 'Appetizer',
+    popularity: 5,
+    rating: 5,
+    tags: ['Good Choice', 'Popular']
+}
+let cookie = {
+    name: 'Chocolate Chip Cookie',
+    price: 9,
+    category: 'Dessert',
+    popularity: 5,
+    rating: 5,
+    tags: ['Kids', 'Popular', 'Good Choice']
+}
+let foodArr = [pizza, wings, pasta, breadsticks, cookie];
 
 
 
@@ -104,8 +151,13 @@
 */
 
 //CODE HERE
+function checkTag(food) {
+    return food.tags.includes("Popular");
+}
 
-// const filteredFood = foodArr.filter(/* CALLBACK HERE */)
+
+const filteredFood = foodArr.filter(checkTag);
+console.log(filteredFood);
 
 
 
@@ -149,6 +201,25 @@
 */
 
 //CODE HERE
+function filterByProperty(property, number, type) {
+    let filteredArr = [];
+
+    function checkProperties(food) {
+        if (type == 'above') {
+            if (food[property] > number) {
+                return food;
+            }
+        }
+        
+        if (type == 'below') {
+            if (food[property] < number) {
+                return food;
+            }
+        }
+    }
+
+    return filteredArr = foodArr.filter(checkProperties);
+}
 
 
 /*
@@ -159,3 +230,4 @@
 */
 
 //CODE HERE
+console.log(filterByProperty('price', '10', 'below'));
